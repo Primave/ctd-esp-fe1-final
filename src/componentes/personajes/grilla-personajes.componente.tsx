@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import './grilla-personajes.css';
-import data from './tarjeta-personaje.componente';
 import TarjetaPersonaje from './tarjeta-personaje.componente';
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { getPersonaje } from '../../redux/personajeSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
+import {getPersonajes} from "../../redux/personajeSlice";
+import { Personaje } from '../../types/types';
+;
+
 
 
 /**
@@ -17,25 +19,26 @@ import { getPersonaje } from '../../redux/personajeSlice';
 const GrillaPersonajes = () => {
 
 
-    const [page, setPage] = useState(1)
     const dispatch = useAppDispatch()
-    const data = useAppSelector(state => state.personaje.tarjetas)
+    const data = useAppSelector(state => state.personaje)
 
-   /*  useEffect(() => {
-        buscarPokemons(name).then((data) => {
-            dispatch(setPokemons(data));
-        });
-    },[name]) */
+    useEffect(() => {
+        dispatch(getPersonajes(1))
+    },[])
 
-    console.log(data)
+    console.log(data);
 
 
 
-    return <div className="grilla-personajes">
-       <TarjetaPersonaje />
-       <TarjetaPersonaje />
-       <TarjetaPersonaje />
+    return (
+    <div className="grilla-personajes">
+
+      {data.tarjetas.map((tarjeta: Personaje) => (
+            <TarjetaPersonaje {...tarjeta} />
+       )) }
+
     </div>
+    );
 }
     
  
@@ -49,13 +52,8 @@ export default GrillaPersonajes;
 
     return (<div className="grilla-personajes">
 
-       {data.map((personaje: any) => (
-        <div key={personaje.id}>
-            <TarjetaPersonaje/>
-        </div>
-        
-       )) 
-       
-       }
+       {data.map((personaje: Personaje) => (
+            <TarjetaPersonaje personaje={personaje} key={personaje.url}/>
+       )) }
         </div>)
 } */

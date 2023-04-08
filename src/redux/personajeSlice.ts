@@ -3,41 +3,52 @@ import { Personaje } from "../types/types";
 
 
 
-const apiPersonaje = async (name: string) => {
+export const apiPersonaje = async (name: string) => {
   const response = await fetch(`https://rickandmortyapi.com/api/character/`);
   const data = await response.json();
-  return data
+  return data.results.filter((tarjeta: Personaje) => tarjeta.name.toLowerCase().match(name.toLowerCase()))
 }
 
-export const getPersonajes = createAsyncThunk(
-  '/getPersonajes',
-  async (page: number) => {
-      const res = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
-      const parseRes = await res.json()
-      return parseRes.results
-  }
-)
-
-export const getPersonaje = createAsyncThunk(
-  '/getPersonaje',
+export const getBuscar = createAsyncThunk(
+  '/getBuscar',
   async (name: string) => {
-    const response = await apiPersonaje(`https://rickandmortyapi.com/api/character/`)
+    const response = await apiPersonaje(name)
     return response
   }
 )
+
+export const getPersonajes = createAsyncThunk (
+  '/getPersonajes',
+async (page: number) => {
+  const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}`);
+  const data= await response.json()
+  return data.results
+  }
+);
+
+
+/* export const getPersonajes = createAsyncThunk(
+  '/getPersonajes',
+  async (page: number) => {
+      const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
+      const data= await response.json()
+      return data.results
+  }
+) */
+
+
 
 interface InitialType {
   tarjetas: Personaje[],
   loading: boolean,
   busqueda: string,
-  esFavorito: boolean
+ 
 } 
 
 const initialState: InitialType = {
   tarjetas: [],
   loading: false,
   busqueda: "",
-  esFavorito: false,
 }
 
 
@@ -54,6 +65,9 @@ const initialState: InitialType = {
           builder.addCase(getPersonajes.fulfilled, (state, action) => {
             state.tarjetas = action.payload
           })
+          builder.addCase(getBuscar.fulfilled, (state, action) => {
+            state.tarjetas = action.payload
+        })
     }
 })
 

@@ -22,4 +22,5 @@ export interface Personaje {
     ],
     url: string,
     created: string,
+    esFavorito: boolean
   }

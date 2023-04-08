@@ -1,7 +1,9 @@
-import { getPersonaje, actionBusqueda } from '../../redux/personajeSlice';
+import { actionBusqueda, getBuscar } from '../../redux/personajeSlice';
 import { useAppDispatch } from "../../hooks/hooks";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './filtros.css';
+import { on } from 'events';
+import TarjetaPersonaje from './tarjeta-personaje.componente';
 
 const Filtros = () => {
 
@@ -10,16 +12,19 @@ const Filtros = () => {
 
     const onBuscarClick = () => {
         // Aqui debemos guardar la entrada del usuario
-        dispatch(actionBusqueda(buscar))
-        dispatch(getPersonaje(buscar))
-    } 
+     dispatch(actionBusqueda(buscar))
+     dispatch(getBuscar(buscar))
+    }
+
+    
+
     
    console.log(buscar)
 
     return <div className="filtros">
         <label for="nombre">Filtrar por nombre:</label>
-        <input type="text" placeholder="Rick, Morty, Beth, Alien, ...etc" name="nombre" 
-        onChange={(e) => setBuscar(e.target.value)} />
+        <input type="text" id="submit" placeholder="Rick, Morty, Beth, Alien, ...etc" name="nombre" 
+        onChange={(e) => setBuscar(e.target.value)} onkeypress={onBuscarClick()}/>
     </div>
 }
 

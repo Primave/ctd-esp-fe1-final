@@ -19,7 +19,7 @@ const TarjetaPersonaje = (tarjeta: Personaje) => {
         <img src={tarjeta.image} alt={tarjeta.name}/>
         <div className="tarjeta-personaje-body">
             <span>{tarjeta.name}</span>
-            <BotonFavorito esFavorito={false} onClick={false} />
+            <BotonFavorito esFavorito={false} onClick={true} />
         </div>
     </div>
 }

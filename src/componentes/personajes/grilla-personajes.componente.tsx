@@ -2,11 +2,8 @@ import { useEffect, useState } from 'react';
 import './grilla-personajes.css';
 import TarjetaPersonaje from './tarjeta-personaje.componente';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
-import {getPersonajes} from "../../redux/personajeSlice";
+import { getPersonajes } from "../../redux/personajeSlice";
 import { Personaje } from '../../types/types';
-;
-
-
 
 /**
  * Grilla de personajes para la pagina de inicio

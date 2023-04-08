@@ -8,10 +8,17 @@ import './boton-favorito.css';
  * @returns un JSX element 
  */
 const BotonFavorito = ({esFavorito, onClick}) => {
+
+    /* const cambiarTema = document.querySelector('#cambiar-tema');
+    cambiarTema.addEventListener("click", alternarColorTema);
+    let nodoOscuro = document.getElementById("sitio");
+    nodoOscuro.classList.toggle("dark"); */
+
+
     const src = esFavorito ? "/imagenes/star-filled.png" : "/imagenes/star.png"
 
     return <div className="boton-favorito">
-        <img src={src} alt={"favorito"} />
+        <img src={src} alt={"favorito"} onClick={esFavorito? esFavorito=true : esFavorito=false}/>
     </div>
 }
 

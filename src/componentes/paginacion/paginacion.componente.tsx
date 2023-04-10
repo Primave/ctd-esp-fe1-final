@@ -1,6 +1,6 @@
 import { current } from '@reduxjs/toolkit';
 import { useAppDispatch } from '../../hooks/hooks';
-import { getPersonajes } from '../../redux/personajeSlice';
+import { getPaginas, getPersonajes } from '../../redux/personajeSlice';
 import './paginacion.css';
 import { useEffect, useState } from 'react';
 
@@ -18,7 +18,7 @@ const Paginacion = () => {
   const dispatch = useAppDispatch()
   
   useEffect(() => {
-    dispatch(getPersonajes(page))
+    dispatch(getPaginas(page))
   },[page])
  
     
@@ -31,7 +31,7 @@ const Paginacion = () => {
 
         <button onClick={() => setPage((prev) => prev +1)}
         //isLoading={isFetching}
-        disabled={false} 
+        disabled={page===42? true : false} 
         className={"primary"}>Siguiente</button>
         
     </div>

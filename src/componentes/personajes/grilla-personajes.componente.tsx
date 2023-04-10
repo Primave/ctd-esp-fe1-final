@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './grilla-personajes.css';
 import TarjetaPersonaje from './tarjeta-personaje.componente';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
-import { getPersonajes } from "../../redux/personajeSlice";
+import { getPaginas, getPersonajes } from "../../redux/personajeSlice";
 import { Personaje } from '../../types/types';
 
 /**
@@ -20,12 +20,8 @@ const GrillaPersonajes = () => {
     const data = useAppSelector(state => state.personaje)
 
     useEffect(() => {
-        dispatch(getPersonajes(1))
+        dispatch(getPaginas(1))
     },[])
-
-    console.log(data);
-
-
 
     return (
     <div className="grilla-personajes">

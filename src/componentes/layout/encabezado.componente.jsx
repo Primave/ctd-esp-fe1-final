@@ -1,5 +1,6 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import './encabezado.css';
+import PaginaInicio from "../../paginas/Inicio.pagina";
 
 /**
  * Encabezado que contiene los links para navegar entre las páginas
@@ -19,7 +20,7 @@ const Encabezado = () => {
                     <ul>
                         <li><Link to="/">Inicio</Link></li>
                         <li><Link to="/favoritos">Favoritos</Link></li>
-                        <li><Link to="/detalle">Detalle</Link></li>
+                        {/* <li><Link to="/detalle">Detalle</Link></li> */}
                     </ul>
                 </nav>
             </div>

@@ -8,10 +8,7 @@ import { Personaje } from '../../types/types';
 /**
  * Grilla de personajes para la pagina de inicio
  * 
- * Deberás agregar las funciones necesarias para mostrar y paginar los personajes
- * 
- * 
- * @returns un JSX element 
+ *@returns {JSX.Element} - un elemento con un map de personajes de tipo tarjetaPersonaje
  */
 const GrillaPersonajes = () => {
 
@@ -37,16 +34,3 @@ const GrillaPersonajes = () => {
  
 export default GrillaPersonajes;
 
-
-
-/* const GrillaPersonajes = () => {
-  
-    const data = useAppSelector(state => state.personaje.tarjetas)
-
-    return (<div className="grilla-personajes">
-
-       {data.map((personaje: Personaje) => (
-            <TarjetaPersonaje personaje={personaje} key={personaje.url}/>
-       )) }
-        </div>)
-} */

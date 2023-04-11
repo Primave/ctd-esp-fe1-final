@@ -3,6 +3,7 @@ import GrillaPersonajes from "../componentes/personajes/grilla-personajes.compon
 import Paginacion from "../componentes/paginacion/paginacion.componente";
 import { useAppDispatch } from "../hooks/hooks";
 import { actionBusqueda, getBuscar } from "../redux/personajeSlice";
+import { useEffect, useState } from "react";
 
 /**
  * Esta es la pagina principal. Aquí se debera ver el panel de filtros junto con la grilla de personajes.
@@ -16,6 +17,7 @@ const PaginaInicio = () => {
 
     const dispatch = useAppDispatch()
 
+    //Limpiar buscar
     const onLimpiar = () => {
         
         dispatch(actionBusqueda(""))

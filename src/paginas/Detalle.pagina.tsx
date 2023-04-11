@@ -24,7 +24,7 @@ const PaginaDetalle = () => {
 
 
 
-    /* const checkParams=()=>{
+    /* const chequearParams=()=>{
         dispatch(getBuscarDetalle(personajeId || 1))
     } */
 

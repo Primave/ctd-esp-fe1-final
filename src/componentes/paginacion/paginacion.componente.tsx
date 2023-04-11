@@ -40,23 +40,3 @@ const Paginacion = () => {
 
 export default Paginacion;
 
-
-
-/* let [setPage, page] = useState(1);
-    const handleDecrementPage = () => setPage((old) => Math.max(1, old - 1));
-    const handleIncrementPage = () => setPage((old) => old + 1);
-
- const query = useQuery(["PERSONAJES", page], () => getPersonajes(page), {
-    keepPreviousData: true,
-  });  */
-
-
-   // const { res } = getPersonajes(page);
-/* 
-  if (isLoading) {
-    return <div>Loading</div>;
-  }
-
-  if (!posts?.data) {
-    return <div>No posts :(</div>;
-  } */

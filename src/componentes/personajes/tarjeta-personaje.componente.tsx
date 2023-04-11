@@ -10,16 +10,16 @@ import { agregarFavorito, sacarFavorito } from '../../redux/personajeSlice';
 /**
  * Tarjeta para cada personaje dentro de la grilla de personajes. 
  * 
- * Deberás agregar las propiedades necesarias para mostrar los datos de los personajes
- * 
- * 
- * @returns un JSX element 
+ *@param {number} id - el id del personaje de tipo numero
+ *@param {string} name - el nombre del personaje de tipo string
+ *@param {string} image - la image del personaje en forma de url de tipo string
+ * @param {array} Favorito - Array que continiene todos los favoritos de tipo number
+ *@param {Object} Personaje - tipea los parametros de tipo Personaje
+ * @returns {JSX.Element} - elemento tarjeta de personaje
  */
 const TarjetaPersonaje = ({id, name, image, Favorito}: Personaje) => {
 
     const dispatch = useAppDispatch();
-    
-
 
     //Detalle
     const navigate = useNavigate();
@@ -41,11 +41,6 @@ const TarjetaPersonaje = ({id, name, image, Favorito}: Personaje) => {
             dispatch(sacarFavorito(id))
         }
     }
-    /* const personajesFavoritos = useAppSelector(state => state.personaje.Favorito)
-    const favOn = personajesFavoritos.find(info => info.id === tarjeta.id) */
-
-
-
 
     return <div className="tarjeta-personaje"  >
         <img src={image} alt={name} onClick={()=> navDetalle(id)}/>
@@ -57,3 +52,4 @@ const TarjetaPersonaje = ({id, name, image, Favorito}: Personaje) => {
 }
 
 export default TarjetaPersonaje;
+

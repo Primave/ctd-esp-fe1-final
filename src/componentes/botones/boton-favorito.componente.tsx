@@ -5,25 +5,19 @@ import { agregarFavorito } from '../../redux/personajeSlice';
 import { Personaje } from '../../types/types';
 
 interface Props{
-    esFavorito:boolean,
-    onClick:() => void, 
+  esFavorito:boolean,
+  onClick:() => void, 
 }
 /**
  * Boton que indica si un elemento es favorito o no, y da la posibilidad de marcarlo/desmarcarlo
  * 
- * Deberás tipar las propiedades si usas este componente
- * 
- * 
- * @returns un JSX element 
+ * @param {booblean} esFavorito - un booleano: si es true aparece la estrella amarilla si es false aparece la estrella vacia
+ * @param {function} onClick - una funcion void que recibe el click
+ * @param {object} Props - interface que tipea los componentes.
+ * @returns {JSX.element} - boton favorito con la condicion de imagen en boolean y el click recibido por una function
  */
-const BotonFavorito = ({esFavorito, onClick}: Props) => {
 
-    /* const dispatch =useAppDispatch();
-
-    const favoritoPersonaje = (tarjeta: Personaje)=>{
-        dispatch(agregarFavorito(tarjeta))
-    } */
-        
+const BotonFavorito = ({esFavorito, onClick}: Props) => {     
 
     const src = esFavorito ? "/imagenes/star-filled.png" : "/imagenes/star.png";
 
@@ -34,6 +28,12 @@ const BotonFavorito = ({esFavorito, onClick}: Props) => {
 
 export default BotonFavorito;
 
+
+    /* const dispatch =useAppDispatch();
+
+    const favoritoPersonaje = (tarjeta: Personaje)=>{
+        dispatch(agregarFavorito(tarjeta))
+    } */
     /* const PersonajeFavorito = document.querySelector('.boton-favorito');
      PersonajeFavorito.addEventListener(onClick, function() {
         PersonajeFavorito.classList.toggle(esFavorito);
